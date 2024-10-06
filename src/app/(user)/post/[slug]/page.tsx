@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { Post } from "../../../../../types";
-import { client,  urlFor } from "@/lib/create-client";
+import { client, urlFor } from "@/lib/create-client";
 import Container from "@/components/container";
 import Image from "next/image";
 import {
@@ -36,9 +36,11 @@ const SlugPage = async ({ params: { slug } }: Props) => {
   const query = groq`*[_type == 'post' && slug.current == $slug][0]{
         ...,
         body,
-        author->
+        author->,
     }`;
   const post: Post = await client.fetch(query, { slug });
+
+  console.log(post); // Debugging line to check the structure of post
 
   return (
     <Container className="mb-10">

@@ -63,4 +63,12 @@ export type Base = {
     description: string;
     title: string;
   }
+
+  export interface SanityImageSource {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  }  
   

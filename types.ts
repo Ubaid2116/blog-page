@@ -69,6 +69,12 @@ export type Base = {
     asset: {
       _ref: string;
       _type: string;
+
     };
   }  
   
+  export interface RenderDefaultProps {
+    [key: string]: any;
+    children?: React.ReactNode;
+    renderDefault: (props: RenderDefaultProps) => React.ReactNode;
+  }

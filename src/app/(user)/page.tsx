@@ -11,7 +11,7 @@ const query = groq`*[_type == 'post']{
 
 export default async function Home() {
   const posts = await client.fetch(query);
-  console.log(posts)
+  console.log(posts);
   return (
     <main>
       <Hero />

@@ -42,10 +42,10 @@ export type Base = {
     _key: string;
     _type: string;
     children: Span[];
-    markDefs: MarkDef[]; // Updated type
+    markDefs: MarkDef[];
     style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
   }
-
+  
   export interface MarkDef {
     _key: string;
     _type: "link";
@@ -63,18 +63,4 @@ export type Base = {
     description: string;
     title: string;
   }
-
-  export interface SanityImageSource {
-    _type: string;
-    asset: {
-      _ref: string;
-      _type: string;
-
-    };
-  }  
   
-  export interface RenderDefaultProps {
-    [key: string]: any;
-    children?: React.ReactNode;
-    renderDefault: (props: RenderDefaultProps) => React.ReactNode;
-  }

@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { IoReturnDownBack } from "react-icons/io5";
 import Logo from "./logo";
-import { RenderDefaultProps } from "../../types"; // Importing the correct type
 
-// Ensure you accept RenderDefaultProps
-const StudioNavbar = (props: RenderDefaultProps) => {
+interface StudioNavbarProps {
+  renderDefault: (props: any) => JSX.Element;
+}
+
+const StudioNavbar = ({ renderDefault }: StudioNavbarProps) => {
   return (
     <div>
       <div className="p-5 bg-black text-gray-100 flex items-center justify-between">
@@ -15,17 +17,12 @@ const StudioNavbar = (props: RenderDefaultProps) => {
           <IoReturnDownBack className="text-2xl " />
           Go to Website
         </Link>
-        <Logo
-          title="Bloggers Studio"
-          className="text-2xl hidden md:inline-flex"
-        />
-        <p className="text-sm ">Studio for Blog Content</p>
+        <Logo title="Bloggers Studio" className="text-2xl hidden md:inline-flex" />
+        <p className="text-sm">Studio for Blog Content</p>
       </div>
-      {/* Use the renderDefault method from props */}
-      {props.renderDefault(props)}
+      {renderDefault({})}
     </div>
   );
 };
 
 export default StudioNavbar;
-
